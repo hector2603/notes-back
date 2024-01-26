@@ -12,4 +12,5 @@ ENV PORT=${PORT}
 COPY --from=build /app/app.jar .
 RUN useradd runtime
 USER runtime
+RUN chmod -rwx test.mv.db
 ENTRYPOINT [ "java", "-Dserver.port=${PORT}", "-jar", "app.jar" ]
