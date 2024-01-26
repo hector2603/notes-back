@@ -9,6 +9,5 @@ FROM eclipse-temurin:20-jre
 ARG PORT
 ENV PORT=${PORT}
 COPY --from=build /app/app.jar .
-RUN chmod -rwx test.mv.db
 USER root
 ENTRYPOINT [ "java", "-Dserver.port=${PORT}", "-jar", "app.jar" ]
